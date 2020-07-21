@@ -3,6 +3,7 @@ from django.conf.urls import url, include
 from django.urls import path
 from . import views
 from rest_framework_simplejwt import views as jwt_views
+from djoser import urls 
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
@@ -15,7 +16,9 @@ urlpatterns = [
     url(r"^jwt/refresh/?", jwt_views.TokenRefreshView.as_view(), name="jwt-refresh"),
     url(r"^jwt/verify/?", jwt_views.TokenVerifyView.as_view(), name="jwt-verify"),
     path('admin/', admin.site.urls),
-    # url(r'user/', include('userapp.urls')),
+    url(r'^auth/', include('djoser.urls.base')),
+    url('',views.ApiView.as_view(),name="api")
+
 ]
 
 urlpatterns += router.urls

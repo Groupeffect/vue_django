@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 from datetime import timedelta
 from django.core.management.utils import get_random_secret_key
+from django.contrib.auth.hashers import make_password
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -24,6 +25,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = None
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+ADMIN = None
+TEST_USER = None
 
 if DEBUG:
     
@@ -35,16 +38,19 @@ if DEBUG:
         'email':'a@b.de'
     }
 
-    TEST_USER = {
-        'username':'tester',
-        'password':'asdf7890',
-        'email':'t@b.de'
+    TEST_USER_0 = {
+        'username':'tester_0',
+        'password':make_password('asdf7890'),
+        'email':'t0@b.de'
     }
 
-
+    TEST_USER_1 = {
+        'username':'tester_1',
+        'password':make_password('asdf7890'),
+        'email':'t1@b.de'
+    }
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
