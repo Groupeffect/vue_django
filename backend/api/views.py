@@ -13,7 +13,7 @@ class JwtTokenObtainPairView(TokenObtainPairView):
 class ApiView(views.APIView):
 
     def get(self, request, format=None):
-        users = f'{reverse.reverse("api",request=request).split("api")[0]}api/auth/users/'
+        users = f'{reverse.reverse("api",request=request)}auth/users/'
 
         urls = [
             'jwt-create',

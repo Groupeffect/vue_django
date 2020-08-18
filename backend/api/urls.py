@@ -18,7 +18,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^auth/', include('djoser.urls.base')),
     url('',views.ApiView.as_view(),name="api")
-
+    
 ]
 
 urlpatterns += router.urls
